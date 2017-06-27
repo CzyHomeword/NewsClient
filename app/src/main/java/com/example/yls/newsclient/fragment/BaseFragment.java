@@ -53,6 +53,7 @@ public abstract class BaseFragment  extends Fragment {
      * 初始化数据
      */
     public abstract void initData();
+
     private Toast mToast;
     public  void showToast(String msg){
         if(mToast == null){

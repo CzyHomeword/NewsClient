@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--抽屉布局-->
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--第1部分：内容布局-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="color/activity_bg"
+    android:background="@color/activity_bg"
     android:orientation="vertical">
 
+    <!-- 此处ViewPager使用权重(layout_weight)1，表示除了底部的选项卡，剩余的高度都为ViewPager -->
     <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view_pager"
         android:layout_weight="1"/>
 
     <!--界面底部的选项卡-->
@@ -17,10 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/divider"/>
+
     <RadioGroup
+        android:id="@+id/rg_01"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/rg_01"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingBottom="3dp"
@@ -40,6 +51,7 @@
             android:text="新闻"
             android:textColor="@drawable/selector_home_tab"
             android:textSize="12sp"/>
+
         <RadioButton
             android:id="@+id/rb_02"
             android:layout_width="0dp"
@@ -95,7 +107,43 @@
             android:text="设置"
             android:textColor="@drawable/selector_home_tab"
             android:textSize="12sp"/>
-
     </RadioGroup>
 
 </LinearLayout>
+    <!--第2部分：侧滑菜单
+           添加如下属性让侧滑菜单显示在左边：
+           android:layout_gravity="left"
+       -->
+  <!--  <LinearLayout
+        android:layout_width="180dp"
+        android:gravity="center"
+        android:layout_gravity="left"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="侧滑菜单"
+            android:textColor="#aa000000"
+            android:textSize="16sp"/>
+
+    </LinearLayout>-->
+   <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_gravity="left"
+        app:headerLayout="@layout/navigation_view_header"
+        app:menu="@menu/main"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"/>
+
+       <android.support.v7.widget.Toolbar
+           android:id="@+id/tool_bar"
+           android:layout_width="match_parent"
+           android:layout_height="?attr/actionBarSize"
+           android:background="@color/colorPrimary"
+           app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+           app:theme="@style/ThemeOverlay.AppCompat.Dark"
+           android:title="广交院实训版">
+       </android.support.v7.widget.Toolbar>
+</android.support.v4.widget.DrawerLayout>
