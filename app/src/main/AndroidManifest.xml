@@ -10,6 +10,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".StartActivity"
             android:theme="@style/Fullscreen">
+            <activity android:name=".ui.activity.NewsDetailActivity"
+                      android:theme="@style/NewDetailActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

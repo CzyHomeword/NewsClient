@@ -5,7 +5,7 @@ import android.os.SystemClock;
 
 public class StartActivity extends BaseActivity {
     @Override
-    protected int getLayoutRes() {
+    public int getLayoutRes() {
         return R.layout.activity_start;
     }
 

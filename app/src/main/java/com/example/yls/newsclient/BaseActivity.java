@@ -2,8 +2,6 @@ package com.example.yls.newsclient;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -17,12 +15,16 @@ protected void onCreate(Bundle savedInstanceState) {
           initData();
       }
 
-    protected abstract int getLayoutRes();
-    public abstract void initListener();
+    /** 返回一个Fragment要显示的布局界面 */
+    public abstract int getLayoutRes();
+
+    /** 查找布局中的子控件 */
     public abstract void initView();
 
-    public abstract void initView(int position, View convertView, ViewGroup parent);
+    /** 设置控件的监听器 */
+    public abstract void initListener();
 
+    /** 初始化数据 */
     public abstract void initData();
 
     private Toast mToast;

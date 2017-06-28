@@ -103,7 +103,7 @@ public class GuideActivity  extends BaseActivity {
     }
 
     @Override
-    protected int getLayoutRes() {
+    public int getLayoutRes() {
         return R.layout.activity_guide;
     }
 
@@ -121,6 +121,7 @@ public class GuideActivity  extends BaseActivity {
         iv01 =(ImageView) findViewById(R.id.iv_01);
         btnGo = (Button)findViewById(R.id.btn_go);
     }
+
     public void initData() {
         startAnimation();
     }

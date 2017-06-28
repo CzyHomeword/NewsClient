@@ -4,6 +4,7 @@ package com.example.yls.newsclient;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -13,7 +14,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
 import com.example.yls.newsclient.fragment.MainFragment1;
@@ -30,6 +30,9 @@ public class MainActivity extends BaseActivity {
     private ViewPager viewPager;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
+    private Toolbar toolbar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected int getLayoutRes() {
+    public int getLayoutRes() {
         return R.layout.activity_main;
     }
 
@@ -133,13 +136,8 @@ public class MainActivity extends BaseActivity {
         radioGroup = (RadioGroup) findViewById(R.id.rg_01);
         initViewPager();
         initNavigationView();
-        initToolbar();
+        initToolBar();
         initDrawerLayout();
-    }
-
-    @Override
-    public void initView(int position, View convertView, ViewGroup parent) {
-
     }
 
     private void initDrawerLayout() {
@@ -151,28 +149,31 @@ public class MainActivity extends BaseActivity {
         toggle.syncState();     // 同步drawerLayout和toolbar的状态
     }
 
-    private void initToolbar() {
+    /* 使用toolBar代替ActionBar,并设置相应属性*/
+    private void initToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);  // 使用toolbar代替ActionBar
 
         toolbar.setLogo(R.drawable.logo);
-        toolbar.setTitle("Toolbar");
+        toolbar.setTitle("ToolBar");   // 通过代码设置才生效：app:title="toolbar"
+
         toolbar.setSubtitle("这是子标题");
         toolbar.setTitleTextColor(Color.RED);
         toolbar.setSubtitleTextColor(Color.YELLOW);
-// 导航栏图标显示
+
+        // 导航栏图标显示
         toolbar.setNavigationIcon(R.drawable.btn_back);
-// 点击toolbar导航栏左上角的图标后，退出当前界面
-        toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+
+        // 点击toolbar导航栏左上角的图标后，退出当前界面
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
     }
     //================Toolbar右上角弹出菜单(begin)=======================
-public  boolean onCreateOptionsaMenu(Menu menu){
+public  boolean onCreateOptionsMenu(Menu menu){
     getMenuInflater().inflate(R.menu.main_option,menu);
     return  true;
 }
