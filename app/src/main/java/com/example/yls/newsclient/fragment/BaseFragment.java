@@ -12,6 +12,7 @@ import android.widget.Toast;
 public abstract class BaseFragment  extends Fragment {
     protected View mRoot;
     protected Activity mActivity;
+    private Toast mToast;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public abstract class BaseFragment  extends Fragment {
      */
     public abstract void initData();
 
-    private Toast mToast;
+
     public  void showToast(String msg){
         if(mToast == null){
             mToast = Toast.makeText(mActivity,"", Toast.LENGTH_SHORT);

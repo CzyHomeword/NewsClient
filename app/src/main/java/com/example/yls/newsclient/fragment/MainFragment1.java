@@ -1,9 +1,12 @@
 package com.example.yls.newsclient.fragment;
+
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+
 import com.example.yls.newsclient.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +29,8 @@ public class MainFragment1 extends BaseFragment {
 
     @Override
     public void initView() {
-        viewPager = (ViewPager) super.mRoot.findViewById(R.id.view_pager_02);
-        tabLayout = (TabLayout) super.mRoot.findViewById(R.id.tab_layout);
+        viewPager = (ViewPager) mRoot.findViewById(R.id.view_pager_02);
+        tabLayout = (TabLayout) mRoot.findViewById(R.id.tab_layout);
         initViewPager();
     }
 

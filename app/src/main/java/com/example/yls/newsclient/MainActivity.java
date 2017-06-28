@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
 import com.example.yls.newsclient.fragment.MainFragment1;
@@ -134,6 +135,11 @@ public class MainActivity extends BaseActivity {
         initNavigationView();
         initToolbar();
         initDrawerLayout();
+    }
+
+    @Override
+    public void initView(int position, View convertView, ViewGroup parent) {
+
     }
 
     private void initDrawerLayout() {

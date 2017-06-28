@@ -2,6 +2,8 @@ package com.example.yls.newsclient;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -18,6 +20,9 @@ protected void onCreate(Bundle savedInstanceState) {
     protected abstract int getLayoutRes();
     public abstract void initListener();
     public abstract void initView();
+
+    public abstract void initView(int position, View convertView, ViewGroup parent);
+
     public abstract void initData();
 
     private Toast mToast;

@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import java.io.IOException;
 
-public class GuideActivity  extends  BaseActivity{
+public class GuideActivity  extends BaseActivity {
     private MediaPlayer mMediaPlayer;
     private ImageView iv01;
     private Button btnGo;
