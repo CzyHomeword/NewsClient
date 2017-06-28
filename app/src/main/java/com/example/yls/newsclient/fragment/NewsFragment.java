@@ -1,6 +1,8 @@
 package com.example.yls.newsclient.fragment;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderAdapter;
@@ -8,6 +10,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.example.yls.newsclient.R;
+import com.example.yls.newsclient.adapter.NewsAdapter;
 import com.example.yls.newsclient.bean.NewsEntity;
 import com.example.yls.newsclient.bean.URLManager;
 import com.google.gson.Gson;
@@ -25,7 +28,7 @@ public class NewsFragment extends BaseFragment {
      * 新闻类别id
      */
     private String channelId;
-    private List listView;
+    private ListView listView;
     private SliderAdapter sliderLayout;
     private NewsEntity newsDatas;
 
@@ -42,6 +45,7 @@ public class NewsFragment extends BaseFragment {
     @Override
     public void initView() {
         TextView textView = (TextView) mRoot.findViewById(R.id.tv_01);
+        listView = (ListView) mRoot.findViewById(R.id.list_view_new);
         textView.setText(channelId);    // 显示新闻类别id，以作区分
     }
 
@@ -74,6 +78,7 @@ public class NewsFragment extends BaseFragment {
                 String json = responseInfo.result;
                 System.out.println("----服务器返回的json数据:" + json);
                 json = json.replace(channelId, "result");
+                Log.i("json_result:",json);
                 Gson gson = new Gson();
                 NewsEntity newsDatas = gson.fromJson(json, NewsEntity.class);
                 System.out.println("----解析json:" + newsDatas.getResult().size());
@@ -123,14 +128,15 @@ public class NewsFragment extends BaseFragment {
                     }
                 });
             }
-          /*  // 添加列表头部布局
-            listView.addHeaderView(headerView);*/
+          /*  // 添加列表头部布局*/
+
+            listView.addHeaderView(headerView);
         }
-/*
+
         // （2）显示新闻列表
         NewsAdapter newsAdapter = new NewsAdapter(
                 mActivity, newsDatas.getResult());
-        listView.setAdapter(newsAdapter);*/
+        listView.setAdapter(newsAdapter);
     }
 }
 
