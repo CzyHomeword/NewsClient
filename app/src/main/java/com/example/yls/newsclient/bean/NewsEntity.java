@@ -338,9 +338,6 @@ public class NewsEntity {
             this.imgextra = imgextra;
         }
 
-
-
-
         public static class AdsBean {
             private String title;
             private String skipID;

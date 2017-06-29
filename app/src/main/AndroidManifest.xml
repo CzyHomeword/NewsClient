@@ -10,9 +10,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".StartActivity"
             android:theme="@style/Fullscreen">
-
-            <activity android:name=".ui.activity.NewsDetailActivity"
-                      android:theme="@style/NewDetailActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,7 +18,7 @@
         </activity>
         <activity android:name=".MainActivity" android:theme="@style/Fullscreen"/>
         <activity android:name=".GuideActivity" android:theme="@style/Fullscreen"/>
-        <activity android:name=".NewsDetailActivity" android:theme="@style/Fullscreen"/>
+        <activity android:name=".NewsDetailActivity" android:theme="@style/NewDetailActivity"/>
     </application>
     <!--声明请求网络的权限-->
     <uses-permission android:name="android.permission.INTERNET"/>

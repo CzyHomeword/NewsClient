@@ -7,6 +7,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.example.yls.newsclient.bean.NewsEntity;
+
 /**
  * Created by yls on 2017/6/28.
  */
@@ -25,18 +27,16 @@ public class NewsDetailActivity extends BaseActivity {
         progressBar = (ProgressBar) findViewById(R.id.pb_01);
         initWebView();
     }
-/*    @Override
-    public void initView(int position, View convertView, ViewGroup parent) {
-    }*/
+
 
     @Override
     public void initData() {
-     /*   NewsEntity.ResultBean newsBean = (NewsEntity.ResultBean) getIntent().getSerializableExtra("news");
-        webView.loadUrl(newsBean.getUrl());
+        NewsEntity.ResultBean newsBean = (NewsEntity.ResultBean) getIntent().getSerializableExtra("news");
+/*        webView.loadUrl(newsBean.getUrl());*/
         // 显示标题栏左上角的返回图标
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // 显示标题栏
-        getSupportActionBar().setTitle(newsBean.getTitle());*/
+        getSupportActionBar().setTitle(newsBean.getTitle());
     }
 
     @Override

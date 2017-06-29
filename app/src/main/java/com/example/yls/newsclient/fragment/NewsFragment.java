@@ -1,7 +1,9 @@
 package com.example.yls.newsclient.fragment;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -9,6 +11,7 @@ import com.daimajia.slider.library.SliderAdapter;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.example.yls.newsclient.NewsDetailActivity;
 import com.example.yls.newsclient.R;
 import com.example.yls.newsclient.adapter.NewsAdapter;
 import com.example.yls.newsclient.bean.NewsEntity;
@@ -30,7 +33,7 @@ public class NewsFragment extends BaseFragment {
     private String channelId;
     private ListView listView;
     private SliderAdapter sliderLayout;
-    private NewsEntity newsDatas;
+
 
 
     public void setChannelId(String channelId) {
@@ -51,18 +54,18 @@ public class NewsFragment extends BaseFragment {
 
     @Override
     public void initListener() {
-       /* listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 用户点击的新闻
                 NewsEntity.ResultBean newsBean = (NewsEntity.ResultBean)
                         parent.getItemAtPosition(position);
 
-                Intent intent = new Intent(mActivity, NewsDetailActivity.class);
-                intent.putExtra("news", newsBean);
+                Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
+          intent.putExtra("news", intent);
                 startActivity(intent);
             }
-        });*/
+        });
     }
     @Override
     public void initData() {
