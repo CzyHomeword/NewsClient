@@ -70,7 +70,7 @@ public class GuideActivity  extends BaseActivity {
                     }
                 }).start();
     }
-  /*  循环播放*/
+    /*循环播放*//**//**/
     private void playBackgroundMusic(){
         try {
             AssetFileDescriptor fileDescriptor = getAssets().openFd("new_version.mp3");
@@ -89,7 +89,7 @@ public class GuideActivity  extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        playBackgroundMusic();
+       playBackgroundMusic();
     }
 
     @Override

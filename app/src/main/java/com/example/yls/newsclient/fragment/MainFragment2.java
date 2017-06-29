@@ -1,10 +1,6 @@
 package com.example.yls.newsclient.fragment;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
 import com.example.yls.newsclient.R;
-import com.example.yls.newsclient.adapter.VideoAdapter;
 import com.example.yls.newsclient.bean.URLManager;
 import com.example.yls.newsclient.bean.VideoEntity;
 import com.google.gson.Gson;
@@ -19,7 +15,6 @@ public class MainFragment2 extends BaseFragment{
     public int getLayoutRes() {
         return R.layout.fragment_main_01;
     }
-
     @Override
     public void initView() {
     }
@@ -45,7 +40,7 @@ public class MainFragment2 extends BaseFragment{
                         VideoEntity newsDatas = gson.fromJson(json, VideoEntity.class);
                         System.out.println("----解析视频json:"
                                 + newsDatas.getResult().size());
-                        showDatas(newsDatas);
+                      /*  showDatas(newsDatas);*/
                     }
 
 
@@ -55,12 +50,12 @@ public class MainFragment2 extends BaseFragment{
                     }
                 });
     }
-    private void showDatas(VideoEntity newsDatas) {
+  /*  private void showDatas(VideoEntity newsDatas) {
         RecyclerView recyclerView = (RecyclerView) mRoot.findViewById(R.id.recycler_view);
         // 设置布局管理器
         recyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
         // 设置适配器，显示列表
         recyclerView.setAdapter(new VideoAdapter(mActivity, newsDatas.getResult()));
-    }
+    }*/
 
     }
